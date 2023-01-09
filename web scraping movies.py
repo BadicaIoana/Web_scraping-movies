@@ -1,5 +1,6 @@
 import requests
 import csv
+import pandas as pd
 from bs4 import BeautifulSoup
 
 def get_movies(max_number_of_pages):
@@ -47,4 +48,10 @@ def get_movies(max_number_of_pages):
 # Call the `get_movies` function with the number of pages as the argument
 if __name__ == '__main__':
     get_movies(100)
+    
+    # Read the CSV file into a DataFrame
+    df = pd.read_csv('movies.csv')
+
+    # Write the DataFrame to an Excel file
+    df.to_excel('movies.xlsx', index=False)
 
